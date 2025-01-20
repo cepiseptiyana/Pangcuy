@@ -100,7 +100,7 @@ function checkout(event) {
         <!-- data keranjang -->
         <div v-if="!keranjangNotEmpty">
           <div v-for="product in cartProduct" class="items">
-            <img v-bind:src="'/src/assets/static/' + product.image" alt="" />
+            <img v-bind:src="product.image" alt="" />
             <div class="text">
               <h1></h1>
               <!-- times == x -->
@@ -120,10 +120,6 @@ function checkout(event) {
           <!-- Form Checkout -->
           <div class="form-container pt-5">
             <form action="" id="checkoutForm">
-              <!-- data items hidden -->
-              <!-- <input id="items" type="hidden" name="items" /> -->
-              <!-- data total hidden -->
-              <!-- <input type="hidden" name="total" /> -->
               <h5 style="text-align: center">Customer Detail</h5>
               <hr />
               <h6>Wajib Isi Data Sebelum Order</h6>

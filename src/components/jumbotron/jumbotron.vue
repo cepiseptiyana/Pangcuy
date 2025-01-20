@@ -1,6 +1,11 @@
 <script setup>
 import { ref } from "vue";
 import feather from "feather-icons";
+
+import pangsit2 from "../../assets/images/pangsit2.png";
+import pangsit1 from "../../assets/images/pangsit1.png";
+import tehManes from "../../assets/images/tehManes.png";
+
 const chevron_left = feather.icons["chevron-left"].toSvg({
   width: 40,
   height: 40,
@@ -15,21 +20,21 @@ const chevron_right = feather.icons["chevron-right"].toSvg({
 const imageJumbo = ref([
   {
     id: 1,
-    img: "pangsit2.png",
+    img: pangsit2,
     textHeadJumbo: "pangsit",
     textJumbo:
       "makanan yang dibuat dengan membungkus daging cincang dalam selembar adonan yang terbuat dari tepung. Pangsit sendiri merupakan salah satu kuliner Tionghoa yang dianggap representatif karna isiannya memiliki makna budaya",
   },
   {
     id: 2,
-    img: "pangsit1.png",
+    img: pangsit1,
     textHeadJumbo: "mie dower",
     textJumbo:
       "Perpaduan rasa pedas dari cabai dan gurih dari kaldu ayam, Packaging design yang menarik. Mie pangsit dower bisa dinikmati kapan saja dan di mana saja, cocok untuk yang suka mie pangsit yang enak.",
   },
   {
     id: 3,
-    img: "tehManes.png",
+    img: tehManes,
     textHeadJumbo: "tehManes",
     textJumbo:
       "Rasa bukanlah secangkir teh hangat, yang sewaktu-waktu beranjak dingin,Semanis-manisnya kamu, lebih manis teh yang ketumpahan gula",
@@ -62,10 +67,7 @@ function chevron_RigthSlide() {
           <a @click="chevron_leftSlide($event)" class="iconleftFeater">
             <span v-html="chevron_left"></span>
           </a>
-          <img
-            class="imageJumbo"
-            :src="'/src/assets/static/' + imageJumbo[nomorJumboSlider].img"
-          />
+          <img class="imageJumbo" :src="imageJumbo[nomorJumboSlider].img" />
           <a @click="chevron_RigthSlide($event)" class="iconRigthFeater">
             <span v-html="chevron_right"></span>
           </a>

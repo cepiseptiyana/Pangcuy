@@ -3,11 +3,18 @@ import { ref } from "vue";
 import navbar from "../navbar/nav.vue";
 import jumbotron from "../jumbotron/jumbotron.vue";
 
+// Imgage
+import pangsit5 from "../../assets/images/pangsit5.jpg";
+import pangsit7 from "../../assets/images/pangsit7.jpg";
+import basomini from "../../assets/images/basomini.png";
+import basoberurat from "../../assets/images/basoberurat.png";
+import esteh from "../../assets/images/esteh.jpg";
+
 // Product
 let products = ref([
   {
     id: 1,
-    image: "pangsit5.jpg",
+    image: pangsit5,
     name: "pangsit",
     text: `
     pilih sesuai selera kamu : <br>
@@ -19,28 +26,28 @@ let products = ref([
   },
   {
     id: 2,
-    image: "pangsit7.jpg",
+    image: pangsit7,
     name: "mie dower",
     text: "Sensasi level pedas mulai dari level 1 sampai 3",
     price: 10000,
   },
   {
     id: 3,
-    image: "basomini.png",
+    image: basomini,
     text: "Ciri khas baso dengan ukuran kecil",
     name: "baso mini",
     price: 8000,
   },
   {
     id: 4,
-    image: "basoberurat.png",
+    image: basoberurat,
     text: "Baso berurat home made",
     name: "baso berurat",
     price: 13000,
   },
   {
     id: 5,
-    image: "esteh.jpg",
+    image: esteh,
     text: "ES Teh Manis Seger 300 ML",
     name: "ES Teh Manis",
     price: 3000,
@@ -122,7 +129,7 @@ function order(event, product) {
           <div v-for="product in products" class="col">
             <div class="card">
               <img
-                v-bind:src="'/src/assets/static/' + product.image"
+                v-bind:src="product.image"
                 class="card-img-top"
                 alt="gaambarYey"
                 name="image"
