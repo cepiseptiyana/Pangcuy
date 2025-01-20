@@ -1,0 +1,51 @@
+@media screen and (max-width: 768px) {
+  /* Menu */
+  /* Navbar */
+  body .navbar .container-fluid .slidebar {
+    position: absolute;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.398);
+    top: 130%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    left: 5%;
+    right: 5%;
+    transition: 1s;
+    background-color: rgba(70, 70, 70, 0.398);
+  }
+
+  .navbar #navbarSupportedContent ul li {
+    margin-top: 10px;
+  }
+
+  .navbar #navbarSupportedContent ul li .a {
+    color: #ffffff;
+    transition: 1s;
+  }
+
+  .navbar .container-fluid .navbar-toggler {
+    background-color: rgb(221, 214, 214);
+  }
+
+  /* keranjang slide */
+  .navbar .container-fluid .keranjangSlide {
+    width: 80%;
+  }
+
+  .navbar .container-fluid .keranjangSlide .items {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .navbar .container-fluid .keranjangSlide .items .text {
+    font-size: 14px;
+  }
+
+  .navbar .container-fluid .keranjangSlide .items .text h1 {
+    text-align: center;
+  }
+
+  .navbar .container-fluid .keranjangSlide .items #add,
+  .navbar .container-fluid .keranjangSlide .items #remove {
+    font-size: 12px;
+  }
+}

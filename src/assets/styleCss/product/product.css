@@ -1,0 +1,104 @@
+/* CARD */
+/* Content-2 */
+body .content-2 {
+  margin: auto;
+  overflow: hidden;
+}
+
+body .content-2 .container {
+  width: 100%;
+}
+
+body .content-2 .row .judul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .content-2 .row .judul::before,
+body .content-2 .row .judul::after {
+  content: "";
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 150px;
+  height: 2px;
+  background-color: rgba(54, 54, 54, 0.219);
+}
+
+body .content-2 .row .col:nth-child(1) h1 {
+  color: #384b70;
+  text-transform: capitalize;
+}
+
+/* Card */
+
+body .content-2 .baris-2 {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  text-align: center;
+}
+
+body .content-2 .baris-2 .col {
+  display: flex;
+  justify-content: center;
+}
+
+body .content-2 .baris-2 .col .card {
+  padding: 10px;
+  width: 230px;
+  transition: 0.5s;
+}
+
+body .content-2 .baris-2 .col .card:hover {
+  translate: -8px -10px;
+  box-shadow: 8px 10px rgba(0, 0, 0, 0.279);
+}
+
+body .content-2 .baris-2 img {
+  object-fit: cover;
+  width: 100%;
+  height: 150px;
+}
+
+body .content-2 .baris-2 img:hover {
+  transition: 300ms;
+  transform: scale(1.15);
+}
+
+/* ROW 2 TEKS */
+body .content-2 .baris-2 .card-body {
+  position: relative;
+}
+
+body .content-2 .baris-2 .card-body .card-title {
+  border-top: 1px solid rgb(109, 109, 109);
+  padding: 2px;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  color: rgb(255, 255, 255);
+}
+
+body .content-2 .baris-2 .card-body .card-text {
+  color: rgb(0, 0, 0);
+  text-align: start;
+  text-transform: capitalize;
+  font-size: 1rem;
+  margin-bottom: 100px;
+}
+
+/* harga */
+body .content-2 .baris-2 .card-body .hargaContainer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+body .content-2 .baris-2 .card-body hr {
+  border-top: 1px solid rgb(109, 109, 109);
+}
+
+body .content-2 .baris-2 .card-body .harga {
+  color: rgb(255, 0, 0);
+}

@@ -1,0 +1,76 @@
+@media screen and (max-width: 768px) {
+  /* CARD */
+  /* CONTENT 2 */
+  /* ROW 2 TEKS */
+  body .content-2 .container {
+    width: 100%;
+  }
+
+  /* width row = supaya mengurangi gap */
+  body .content-2 .baris-2 {
+    gap: 20px;
+    margin: auto;
+  }
+
+  body .content-2 .baris-2 .card-body .card-title {
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+
+  body .content-2 .baris-2 .card-body .card-text {
+    font-size: 0.8rem;
+  }
+
+  body .content-2 .baris-2 .col .card {
+    overflow: hidden;
+    width: 280px;
+  }
+
+  body .content-2 .baris-2 img {
+    object-fit: cover;
+    width: 100%;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* CONTENT 2 */
+  /* ROW 2 TEKS */
+  body .content-2 .row .col:nth-child(1) h1 {
+    color: #384b70;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+  body .content-2 .row .judul::before,
+  body .content-2 .row .judul::after {
+    content: "";
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50px;
+    height: 2px;
+    background-color: rgba(54, 54, 54, 0.219);
+  }
+
+  body .content-2 .baris-2 {
+    gap: 20px;
+    margin: auto;
+  }
+
+  body .content-2 .baris-2 .col .card {
+    overflow: hidden;
+    padding: 10px;
+    width: 400px;
+  }
+
+  body .content-2 .baris-2 .card-body .card-title {
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    text-transform: capitalize;
+  }
+
+  body .content-2 .baris-2 .card-body .card-text {
+    font-size: 0.8rem;
+  }
+}

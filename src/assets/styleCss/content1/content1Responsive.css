@@ -1,0 +1,15 @@
+@media screen and (max-width: 768px) {
+  /* CONTENT 1 */
+  body .content-1 .containerr h1 {
+    padding-top: 2rem;
+  }
+
+  body .content-1 .containerr h1,
+  body .content-1 .containerr h2 {
+    font-size: 1.5rem;
+  }
+
+  body .content-1 .containerr h3 {
+    font-size: 1.1rem;
+  }
+}
