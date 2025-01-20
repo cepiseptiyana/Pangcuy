@@ -116,7 +116,7 @@ function order(event, product) {
       <div class="container">
         <div class="row">
           <div class="col judul">
-            <h1>Produk Kamii</h1>
+            <h1>Produk Kami</h1>
             <hr />
           </div>
         </div>
