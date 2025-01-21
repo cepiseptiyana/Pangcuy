@@ -1,7 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import navbar from "../navbar/nav.vue";
-import jumbotron from "../jumbotron/jumbotron.vue";
 
 // Imgage
 import pangsit5 from "../../assets/images/pangsit5.jpg";
@@ -9,6 +7,12 @@ import pangsit7 from "../../assets/images/pangsit7.jpg";
 import basomini from "../../assets/images/basomini.png";
 import basoberurat from "../../assets/images/basoberurat.png";
 import esteh from "../../assets/images/esteh.jpg";
+import esJeruk from "../../assets/images/esJeruk.png";
+import esCoklat from "../../assets/images/esCoklat.png";
+import kentangGoreng from "../../assets/images/kentangGoreng.png";
+
+// quantityKeranjang
+import { quantityKeranjang } from "./quantityCart.js";
 
 // Product
 let products = ref([
@@ -42,7 +46,7 @@ let products = ref([
     id: 4,
     image: basoberurat,
     text: "Baso berurat home made",
-    name: "baso berurat",
+    name: "baso urat",
     price: 13000,
   },
   {
@@ -52,78 +56,95 @@ let products = ref([
     name: "ES Teh Manis",
     price: 3000,
   },
+  {
+    id: 6,
+    image: esJeruk,
+    text: "ES Jeruk manis asem wenak",
+    name: "ES Jeruk",
+    price: 5000,
+  },
+  {
+    id: 7,
+    image: esCoklat,
+    text: "ES Coklat manis wenak dengan macam topping pilihan",
+    name: "ES Coklat",
+    price: 10000,
+  },
+  {
+    id: 8,
+    image: kentangGoreng,
+    text: "Kentang Goreng crispyy renyah",
+    name: "Kentang",
+    price: 12000,
+  },
 ]);
 
-// Order Product Add To Shopping-Cart
-let cartProduct = ref([]);
-let keranjangNotEmpty = ref(true);
-let quantityKeranjang = ref(0);
-let totalHarga = ref(0);
-
+// Fungsi order
 function order(event, product) {
   event.preventDefault();
   // Find
-  let cartItem = cartProduct.value.find((products) => {
+  let cartItem = quantityKeranjang.cartProduct.find((products) => {
     return product.id == products.id;
   });
 
   // cek
   // IF !cartproduct kosong
-  if (cartProduct.value != 0) {
+  if (quantityKeranjang.cartProduct != 0) {
     // FIND
     if (!cartItem) {
-      cartProduct.value.push({ ...product, quantity: 1, total: product.price });
-      quantityKeranjang.value++;
-      totalHarga.value += product.price;
-    } else {
-      let elseAddProductNotIdSame = cartProduct.value.map((products) => {
-        let productSementara = products;
-        // Jika product yang di kirim client != product terakhir di dalam array "cartProduct.value"
-        if (product.id == products.id) {
-          quantityKeranjang.value++;
-          productSementara.quantity++;
-          productSementara.total =
-            productSementara.price * productSementara.quantity;
-          totalHarga.value += product.price;
-        }
-        // return semua product
-        return productSementara;
+      quantityKeranjang.cartProduct.push({
+        ...product,
+        quantity: 1,
+        total: product.price,
       });
-      cartProduct.value = elseAddProductNotIdSame; // 0
+      quantityKeranjang.count++;
+      quantityKeranjang.totalHarga += product.price;
+    } else {
+      // jika ada barang yang sama
+      let elseAddProductNotIdSame = quantityKeranjang.cartProduct.map(
+        (products) => {
+          let productSementara = products;
+          // Jika product yang di kirim client == cartProduct.count
+          if (product.id == products.id) {
+            quantityKeranjang.count++;
+            productSementara.quantity++;
+            productSementara.total =
+              productSementara.price * productSementara.quantity;
+            quantityKeranjang.totalHarga += product.price;
+          }
+          // return semua product
+          return productSementara;
+        }
+      );
+      // di isi array baru
+      quantityKeranjang.cartProduct = elseAddProductNotIdSame;
     }
   } else {
-    cartProduct.value.push({ ...product, quantity: 1, total: product.price });
-    quantityKeranjang.value++;
-    totalHarga.value += product.price;
-    keranjangNotEmpty.value = false;
+    quantityKeranjang.cartProduct.push({
+      ...product,
+      quantity: 1,
+      total: product.price,
+    });
+    quantityKeranjang.count++;
+    quantityKeranjang.totalHarga += product.price;
+    quantityKeranjang.keranjangNotEmpty = false;
   }
 }
 </script>
 
 <template>
-  <!-- nav -->
-  <navbar
-    :product="cartProduct"
-    :keranjangNotEmpty="keranjangNotEmpty"
-    :quantityKeranjang="quantityKeranjang"
-    :totalHarga="totalHarga"
-  />
-
-  <!-- jumbotron -->
-  <jumbotron />
-
-  <!-- Content-2 -->
+  <!-- produk -->
   <section class="content-2" id="content-2">
     <div class="container">
       <div class="container">
         <div class="row">
-          <div class="col">
+          <div class="col judul">
             <h1>Produk Kami</h1>
             <hr />
           </div>
         </div>
 
-        <!-- Products -->
+        <!-- Products-Cart -->
         <div class="row baris-2">
           <!-- Lopping Products -->
           <div v-for="product in products" class="col">
@@ -135,7 +156,7 @@ function order(event, product) {
                 name="image"
               />
               <div class="card-body">
-                <h3 class="card-title">{{ product.name }}</h3>
+                <h3 class="card-title bg-success">{{ product.name }}</h3>
                 <p class="card-text" v-html="product.text"></p>
                 <div class="hargaContainer">
                   <hr />
@@ -143,9 +164,9 @@ function order(event, product) {
                   <a
                     @click="order($event, product)"
                     href="#"
-                    class="btn btn-primary"
+                    class="btn btn-success"
                     id="btn-order"
-                    >Yuk order</a
+                    >add Cart</a
                   >
                 </div>
               </div>

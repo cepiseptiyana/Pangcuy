@@ -1,3 +1,12 @@
+@media screen and (max-width: 1024px) {
+  /* CARD */
+  /* CONTENT 2 */
+  /* ROW 2 TEKS */
+  body .content-2 .container {
+    width: 90%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   /* CARD */
   /* CONTENT 2 */

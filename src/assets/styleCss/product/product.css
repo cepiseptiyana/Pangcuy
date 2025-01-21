@@ -1,4 +1,5 @@
 /* CARD */
+.card-title
 /* Content-2 */
 body .content-2 {
   margin: auto;
@@ -72,7 +73,7 @@ body .content-2 .baris-2 .card-body {
 }
 
 body .content-2 .baris-2 .card-body .card-title {
-  border-top: 1px solid rgb(109, 109, 109);
+  /* border-top: 1px solid rgb(109, 109, 109); */
   padding: 2px;
   font-size: 1.5rem;
   text-transform: capitalize;
