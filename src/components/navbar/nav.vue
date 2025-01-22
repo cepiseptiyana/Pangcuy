@@ -2,7 +2,27 @@
 import { ref } from "vue";
 import feather from "feather-icons";
 import parsePhoneNumber from "libphonenumber-js";
-// import validatePhoneNumberLength from "libphonenumber-js";
+import Swal from "sweetalert2";
+
+// SweetAlert
+function swet() {
+  Swal.fire({
+    title: "berhasil order",
+    icon: "success",
+  });
+}
+function nameLength() {
+  Swal.fire({
+    title: "nama belum di isi",
+    icon: "error",
+  });
+}
+function noHpLength() {
+  Swal.fire({
+    title: "nomor belum di isi",
+    icon: "error",
+  });
+}
 
 let iconsShopping_Cart = feather.icons["shopping-cart"].toSvg({
   id: "shopCartSlide",
@@ -40,10 +60,14 @@ function checkout(event) {
   let noHp = document.getElementById("noHp").value;
   let totalHargaWa = quantityKeranjang.totalHarga;
   let myContact = "6285659519463";
-  const phoneNumber = parsePhoneNumber(`${noHp}`, "ID");
+  let phoneNumber = parsePhoneNumber(`${noHp}`, "ID");
 
-  let encodedMessage = encodeURIComponent(
-    `PANGCUY
+  // push ke wa
+  if (name.length != 0) {
+    if (noHp.length != 0) {
+      if (noHp.length > 10) {
+        let encodedMessage = encodeURIComponent(
+          `PANGCUY
   PANGSIT AYAM CIHUY
   V94Q+C7H Renged,
   Kabupaten Tangerang,Banten
@@ -63,22 +87,23 @@ function checkout(event) {
   Note :
     # WAJIB SHARELOCK LOKASI ANDA SEBELUM ORDER
     `
-  );
+        );
 
-  // push ke wa
-  if (name.length != 0) {
-    if (noHp.length != 0) {
-      if (noHp.length > 10) {
         let link = `https://wa.me/${myContact}?text=${encodedMessage}`;
-        window.open(link, "_blank");
+        swet();
+        keranjang_Slide_Show.value = false;
+        window.open(link, "_self");
       } else {
         alert("nomor tidak diketahui !!!");
+        return;
       }
     } else {
-      alert("isi noHp !!!");
+      noHpLength();
+      return;
     }
   } else {
-    alert("isi nama !!!");
+    nameLength();
+    return;
   }
 }
 

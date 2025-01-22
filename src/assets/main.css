@@ -9,6 +9,8 @@
 @import "./styleCss/kontak.css";
 @import "./styleCss/footer.css";
 
+@import url("./styleCss/sweetAlert/sweet.css");
+
 * {
   margin: 0;
   padding: 0;

@@ -23,7 +23,9 @@
   }
 
   .navbar .container-fluid .navbar-toggler {
-    background-color: rgb(221, 214, 214);
+    position: relative;
+    background-color: rgb(255, 238, 0);
+    /* z-index: -1; */
   }
 
   /* keranjang slide */
