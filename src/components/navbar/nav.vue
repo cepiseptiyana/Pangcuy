@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from "vue";
 import feather from "feather-icons";
+import parsePhoneNumber from "libphonenumber-js";
+// import validatePhoneNumberLength from "libphonenumber-js";
 
 let iconsShopping_Cart = feather.icons["shopping-cart"].toSvg({
   id: "shopCartSlide",
@@ -38,6 +40,7 @@ function checkout(event) {
   let noHp = document.getElementById("noHp").value;
   let totalHargaWa = quantityKeranjang.totalHarga;
   let myContact = "6285659519463";
+  const phoneNumber = parsePhoneNumber(`${noHp}`, "ID");
 
   let encodedMessage = encodeURIComponent(
     `PANGCUY
@@ -47,7 +50,7 @@ function checkout(event) {
   -----------------------------------------------
   Data Customer :
     Nama: ${name}
-    NoHp: ${noHp}
+    NoHp: ${phoneNumber.number}
 
   Data Pesanan :
     ${dataProduk.map((item) => {
@@ -69,7 +72,7 @@ function checkout(event) {
         let link = `https://wa.me/${myContact}?text=${encodedMessage}`;
         window.open(link, "_blank");
       } else {
-        alert("noHp Tidak diketahui !!!");
+        alert("nomor tidak diketahui !!!");
       }
     } else {
       alert("isi noHp !!!");
@@ -163,7 +166,7 @@ function tambahQuantity(product) {
           <div v-for="product in quantityKeranjang.cartProduct" class="items">
             <img v-bind:src="product.image" alt="" />
             <div class="text">
-              <h1></h1>
+              <h1>{{ product.name }}</h1>
               <!-- times == x -->
               <span></span> &times;
               <!-- minus == - -->
@@ -183,32 +186,35 @@ function tambahQuantity(product) {
           <!-- Form Checkout -->
           <div class="form-container pt-5">
             <form action="" id="checkoutForm">
-              <h5 style="text-align: center">Customer Detail</h5>
+              <h5>Customer Detail</h5>
               <hr />
               <h6>Wajib Isi Data Sebelum Order</h6>
 
-              <label for="name">
-                <span>Name</span>
-                <input
-                  id="name"
-                  class="form-control me-2"
-                  placeholder="isi Nama Anda"
-                  type="text"
-                  name="name"
-                />
-              </label>
+              <div class="formData">
+                <label for="name"> Name: </label>
+                <div class="inputData">
+                  <input
+                    id="name"
+                    class="form-control me-2"
+                    placeholder="username"
+                    type="text"
+                    name="nameUser"
+                  />
+                </div>
 
-              <label for="noHp">
-                <span>No.Hanphone</span>
-                <input
-                  id="noHp"
-                  class="form-control me-2"
-                  type="number"
-                  placeholder="isi noHp Anda"
-                  autocomplete="off"
-                  name="noHp"
-                />
-              </label>
+                <label for="noHp">No.Hanphone :</label>
+                <div class="inputData">
+                  <button>ID</button>
+                  <input
+                    id="noHp"
+                    class="form-control me-2"
+                    placeholder="+62"
+                    type="text"
+                    name="noHandphone"
+                  />
+                </div>
+              </div>
+
               <button
                 @click="checkout($event)"
                 id="checkout-button"

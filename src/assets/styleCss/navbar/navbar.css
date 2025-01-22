@@ -96,19 +96,11 @@ body .navbar {
 
 .navbar .container-fluid .keranjangSlide .items .text h1 {
   text-transform: capitalize;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 /* ! slider_KERANJANG */
 /* ! button disable */
-/* jika class .checkout-button.disable */
-.navbar
-  .container-fluid
-  .keranjangSlide
-  .form-container
-  .checkout-button.disabled {
-  cursor: not-allowed;
-}
 
 .navbar .container-fluid .keranjangSlide .items #add,
 .navbar .container-fluid .keranjangSlide .items #remove {
@@ -121,4 +113,26 @@ body .navbar {
 
 .navbar .container-fluid .keranjangSlide.keranjangActive {
   transform: translate(0);
+}
+
+/* checkoutForm */
+.navbar .container-fluid .keranjangSlide #checkoutForm .formData {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+}
+
+.navbar .container-fluid .keranjangSlide #checkoutForm .formData .inputData {
+  display: flex;
+}
+
+.navbar
+  .container-fluid
+  .keranjangSlide
+  #checkoutForm
+  .formData
+  .inputData
+  button {
+  pointer-events: none;
+  padding: 7px;
 }
