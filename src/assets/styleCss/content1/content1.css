@@ -2,7 +2,8 @@
 
 body .content-1 .containerr {
   padding: 0;
-  background-color: #212121;
+  /* background-color: #212121; */
+  background: linear-gradient(to bottom, black, #201e1e);
 }
 
 body .content-1 .containerr h1 {

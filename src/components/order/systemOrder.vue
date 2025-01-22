@@ -2,14 +2,16 @@
 import { ref } from "vue";
 
 // Imgage
-import pangsit5 from "../../assets/images/pangsit5.jpg";
-import pangsit7 from "../../assets/images/pangsit7.jpg";
+import pangsit from "../../assets/images/pangsit.png";
+import mie from "../../assets/images/mie.png";
 import basomini from "../../assets/images/basomini.png";
-import basoberurat from "../../assets/images/basoberurat.png";
+import baksoUrat from "../../assets/images/baksoUrat.png";
 import esteh from "../../assets/images/esteh.jpg";
 import esJeruk from "../../assets/images/esJeruk.png";
 import esCoklat from "../../assets/images/esCoklat.png";
 import kentangGoreng from "../../assets/images/kentangGoreng.png";
+import kerang from "../../assets/images/kerang.png";
+import udangRebus from "../../assets/images/udangRebus.png";
 
 // quantityKeranjang
 import { quantityKeranjang } from "./quantityCart.js";
@@ -18,22 +20,17 @@ import { quantityKeranjang } from "./quantityCart.js";
 let products = ref([
   {
     id: 1,
-    image: pangsit5,
+    image: pangsit,
     name: "pangsit",
-    text: `
-    pilih sesuai selera kamu : <br>
-    1. Pangcuy Dowerr <br>
-    2. Pangcuy Chill oil <br>
-    3. Pangcuy Goreng <br>
-    4. Pangcuy Kuah`,
+    text: `pangsit rebus pedas reguler`,
     price: 13000,
   },
   {
     id: 2,
-    image: pangsit7,
+    image: mie,
     name: "mie dower",
     text: "Sensasi level pedas mulai dari level 1 sampai 3",
-    price: 10000,
+    price: 12000,
   },
   {
     id: 3,
@@ -44,7 +41,7 @@ let products = ref([
   },
   {
     id: 4,
-    image: basoberurat,
+    image: baksoUrat,
     text: "Baso berurat home made",
     name: "baso urat",
     price: 13000,
@@ -76,6 +73,20 @@ let products = ref([
     text: "Kentang Goreng crispyy renyah",
     name: "Kentang",
     price: 12000,
+  },
+  {
+    id: 9,
+    image: kerang,
+    text: "kerang rebus kuah manis",
+    name: "Kerang",
+    price: 25000,
+  },
+  {
+    id: 10,
+    image: udangRebus,
+    text: "udang Rebus kuah manis",
+    name: "udang Rebus",
+    price: 25000,
   },
 ]);
 

@@ -6,11 +6,11 @@
   }
 
   .jumbo .container-fluid .row .colomn-1 {
-    padding-top: 50px;
+    /* padding-top: 50px; */
   }
 
   .jumbo .container-fluid .imageJumbo {
-    width: 380px;
+    width: 300px;
   }
 
   .jumbo .container-fluid .row .colomn-2 div .textHeadJumbo {

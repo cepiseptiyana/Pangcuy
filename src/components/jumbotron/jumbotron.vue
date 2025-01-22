@@ -2,9 +2,9 @@
 import { ref } from "vue";
 import feather from "feather-icons";
 
-import pangsit2 from "../../assets/images/pangsit2.png";
+import pangsit2 from "../../assets/images/pangsit.png";
 import pangsit1 from "../../assets/images/pangsit1.png";
-import tehManes from "../../assets/images/tehManes.png";
+import esCoklat from "../../assets/images/esCoklat.png";
 
 const chevron_left = feather.icons["chevron-left"].toSvg({
   width: 40,
@@ -34,10 +34,10 @@ const imageJumbo = ref([
   },
   {
     id: 3,
-    img: tehManes,
-    textHeadJumbo: "tehManes",
+    img: esCoklat,
+    textHeadJumbo: "esCoklat",
     textJumbo:
-      "Rasa bukanlah secangkir teh hangat, yang sewaktu-waktu beranjak dingin,Semanis-manisnya kamu, lebih manis teh yang ketumpahan gula",
+      "Es coklat memiliki rasa manis dan aroma khas cokelat yang kuat. Es coklat bisa dinikmati sebagai hidangan penutup atau dessert",
   },
 ]);
 
