@@ -44,17 +44,55 @@ const imageJumbo = ref([
 let nomorJumboSlider = ref(0);
 // Function Chev-Left
 function chevron_leftSlide(event) {
-  nomorJumboSlider.value--;
-  if (nomorJumboSlider.value < 0) {
-    nomorJumboSlider.value = imageJumbo.value.length - 1;
+  if (nomorJumboSlider.value < 1) {
+    document
+      .getElementsByClassName("imageJumbo")[0]
+      .classList.add("animateImg");
+
+    setTimeout(() => {
+      document
+        .getElementsByClassName("imageJumbo")[0]
+        .classList.remove("animateImg");
+      nomorJumboSlider.value = imageJumbo.value.length - 1;
+    }, 600);
+  } else {
+    document
+      .getElementsByClassName("imageJumbo")[0]
+      .classList.add("animateImg");
+    setTimeout(() => {
+      document
+        .getElementsByClassName("imageJumbo")[0]
+        .classList.remove("animateImg");
+      nomorJumboSlider.value--;
+      // console.log(nomorJumboSlider.value);
+    }, 600);
   }
 }
 
 // Function Chev-Rigth
 function chevron_RigthSlide() {
-  nomorJumboSlider.value++;
-  if (nomorJumboSlider.value > imageJumbo.value.length - 1) {
-    nomorJumboSlider.value = 0;
+  // 2
+  if (nomorJumboSlider.value >= imageJumbo.value.length - 1) {
+    document
+      .getElementsByClassName("imageJumbo")[0]
+      .classList.add("animateImg");
+    setTimeout(() => {
+      document
+        .getElementsByClassName("imageJumbo")[0]
+        .classList.remove("animateImg");
+      nomorJumboSlider.value = 0;
+    }, 600);
+  } else {
+    document
+      .getElementsByClassName("imageJumbo")[0]
+      .classList.add("animateImg");
+    setTimeout(() => {
+      document
+        .getElementsByClassName("imageJumbo")[0]
+        .classList.remove("animateImg");
+      nomorJumboSlider.value++;
+      // console.log(nomorJumboSlider.value);
+    }, 600);
   }
 }
 </script>

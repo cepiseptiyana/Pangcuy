@@ -11,16 +11,25 @@ function swet() {
     icon: "success",
   });
 }
+
 function nameLength() {
   Swal.fire({
     title: "nama belum di isi",
-    icon: "error",
+    icon: "warning",
   });
 }
-function noHpLength() {
+
+function noHpNull() {
   Swal.fire({
     title: "nomor belum di isi",
-    icon: "error",
+    icon: "warning",
+  });
+}
+
+function noHpLength() {
+  Swal.fire({
+    title: "nomor tidak diketahui !!!",
+    icon: "warning",
   });
 }
 
@@ -94,11 +103,11 @@ function checkout(event) {
         keranjang_Slide_Show.value = false;
         window.open(link, "_self");
       } else {
-        alert("nomor tidak diketahui !!!");
+        noHpLength();
         return;
       }
     } else {
-      noHpLength();
+      noHpNull();
       return;
     }
   } else {

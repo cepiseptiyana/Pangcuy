@@ -13,7 +13,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  filter: blur(1px);
+  filter: blur(0.5px);
   transition: 0.5s;
 }
 
@@ -33,6 +33,13 @@
 
 .jumbo .container-fluid .imageJumbo {
   width: 420px;
+  position: relative;
+  bottom: 0;
+  transition: 0.6s;
+}
+
+.jumbo .container-fluid .imageJumbo.animateImg {
+  bottom: 100%;
 }
 
 .jumbo .container-fluid .imageJumbo:hover {
@@ -50,6 +57,7 @@
 }
 
 .jumbo .container-fluid .row .colomn-2 div .textHeadJumbo {
+  position: relative;
   width: 100%;
   color: yellow;
   font-family: sans-serif;
@@ -58,11 +66,18 @@
   font-size: 2.5rem;
   transform: rotate(-4deg);
   text-shadow: 5px 5px #ff0000;
-  transition: 1s;
-  z-index: 99999;
+  transition: 0.6s;
+}
+
+.jumbo .container-fluid .row .colomn-2 div .textHeadJumbo:hover {
+  cursor: grabbing;
+  transform: rotate(-5deg);
 }
 
 .jumbo .container-fluid .row .colomn-2 .textJumbo {
+  background-color: rgba(30, 30, 30, 0.59);
+  border-bottom: 1px solid white;
+  padding: 15px;
   margin-top: 2rem;
   color: white;
   width: 100%;
