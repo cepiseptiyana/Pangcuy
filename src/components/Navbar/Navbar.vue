@@ -255,7 +255,8 @@ function tambahQuantity(product) {
               class="nav-link active text-white"
               aria-current="page"
               href="/"
-            />
+              >Home</router-link
+            >
           </li>
           <router-link
             to="/transaksi"
