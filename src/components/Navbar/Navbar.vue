@@ -251,9 +251,11 @@ function tambahQuantity(product) {
           style="--bs-scroll-height: 100px"
         >
           <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href="#"
-              >Home</a
-            >
+            <router-link
+              class="nav-link active text-white"
+              aria-current="page"
+              href="/"
+            />
           </li>
           <router-link
             to="/transaksi"

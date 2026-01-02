@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/transaksi", "destination": "/index.html" }]
+}
