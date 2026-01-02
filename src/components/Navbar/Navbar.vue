@@ -254,7 +254,7 @@ function tambahQuantity(product) {
             <router-link
               class="nav-link active text-white"
               aria-current="page"
-              href="/"
+              to="/"
               >Home</router-link
             >
           </li>
