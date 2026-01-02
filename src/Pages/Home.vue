@@ -1,3 +1,7 @@
+<script setup>
+import Products from "../components/Products/Products.vue";
+</script>
+
 <template>
   <section class="content-1" id="content-1">
     <div class="containerr">
@@ -15,4 +19,8 @@
       </svg>
     </div>
   </section>
+
+  <Products />
 </template>
+
+<style scoped></style>

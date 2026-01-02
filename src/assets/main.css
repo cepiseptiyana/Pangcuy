@@ -23,3 +23,36 @@ body {
 body .container-body {
   min-height: 100vh;
 }
+
+#snap-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
+
+:root {
+  --primary-color: #007bff;
+  --primary-color-dark: #093fb4;
+  --secondary-color: #44444e;
+  --gray-color: #eeeeee;
+  --red-color: #dc143c;
+  --red-color-dark: rgb(184, 20, 53);
+  --font-size-base: 16px;
+}
+
+html {
+}
+body {
+  background: #f7f7f7;
+  font-family: "Poppins", sans-serif;
+}
+
+*::selection {
+  background: #2b3dda;
+  color: #fff;
+}

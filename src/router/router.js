@@ -1,10 +1,13 @@
 import { createMemoryHistory, createRouter } from "vue-router";
-import home from "@/components/home.vue";
-import product from "@/components/product.vue";
+
+import Home from "@/Pages/Home.vue";
+// import Product from "@/Pages/Products.vue";
+import Transaksi from "@/Pages/Transaksi.vue";
 
 const routes = [
-  { path: "/", component: home },
-  { path: "/product", component: product },
+  { path: "/", component: Home },
+  // { path: "/product", component: Product },
+  { path: "/transaksi", component: Transaksi },
 ];
 
 const router = createRouter({
