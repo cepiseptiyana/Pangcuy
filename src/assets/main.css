@@ -13,6 +13,13 @@
 
 @import url("./styleCss/sweetAlert/sweet.css");
 
+:root {
+  --primary-color: #3498db;
+  --white-color: #fff;
+  --secondary-color: #494949;
+  --spacing: 16px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -24,34 +31,4 @@ body {
 
 body .container-body {
   min-height: 100vh;
-}
-
-#snap-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-}
-
-:root {
-  --primary-color: #007bff;
-  --primary-color-dark: #093fb4;
-  --secondary-color: #44444e;
-  --gray-color: #eeeeee;
-  --red-color: #dc143c;
-  --red-color-dark: rgb(184, 20, 53);
-  --font-size-base: 16px;
-}
-
-html {
-}
-body {
-  background: #f7f7f7;
-  font-family: "Poppins", sans-serif;
-}
-
-*::selection {
-  background: #2b3dda;
-  color: #fff;
 }

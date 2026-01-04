@@ -98,29 +98,121 @@ function chevron_RigthSlide() {
 </script>
 
 <template>
-  <section class="jumbo">
+  <header class="jumbo">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg colomn-1">
-          <a @click="chevron_leftSlide($event)" class="iconleftFeater">
+      <div
+        class="row position-relative d-flex justify-content-center align-items-center"
+      >
+        <div class="col-lg">
+          <!-- <a @click="chevron_leftSlide($event)" class="iconleftFeater">
             <span v-html="chevron_left"></span>
-          </a>
-          <img class="imageJumbo" :src="imageJumbo[nomorJumboSlider].img" />
-          <a @click="chevron_RigthSlide($event)" class="iconRigthFeater">
+          </a> -->
+          <img
+            class="imageJumbo"
+            src="@/assets/images/bg-hero-home.jpg"
+            width="100%"
+            min-height="480px"
+          />
+          <!-- <a @click="chevron_RigthSlide($event)" class="iconRigthFeater">
             <span v-html="chevron_right"></span>
-          </a>
+          </a> -->
         </div>
-        <div class="col-lg colomn-2">
-          <div>
-            <h1 class="textHeadJumbo">
-              {{ imageJumbo[nomorJumboSlider].textHeadJumbo }}
-            </h1>
-            <p class="textJumbo">
-              {{ imageJumbo[nomorJumboSlider].textJumbo }}
-            </p>
+
+        <div class="col-lg desc position-absolute text-center">
+          <h1>kuliner <span class="text-danger">makanan</span> indonesia</h1>
+          <p>Praktis & Higienis!</p>
+        </div>
+
+        <div class="col-lg box-pesan position-absolute text-center">
+          <div class="wrapper">
+            <h2>
+              Bingung mau pesan apa?
+              <span>Yuk, kami pilihkan menu terbaik!</span>
+            </h2>
+
+            <form action="">
+              <div class="wrapper-input filter-date">
+                <label for="">Tanggal Acara</label>
+                <input type="date" />
+              </div>
+
+              <div class="wrapper-input location-date">
+                <label for="">Tanggal Acara</label>
+                <input type="date" />
+              </div>
+
+              <div class="wrapper-input time-filter">
+                <label for="">Tanggal Acara</label>
+                <input type="date" />
+              </div>
+
+              <div class="wrapper-btn">
+                <button>Cek Rekomendasi</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 </template>
+
+<style scoped>
+.jumbo {
+  padding-top: 56px;
+
+  & .desc {
+    & h1 {
+      font-style: italic;
+      font-family: Vedacity;
+      font-size: 48px;
+      line-height: 1.16667;
+    }
+
+    & p {
+      font-size: 24px;
+      line-height: 1.33334;
+      color: #000000;
+    }
+  }
+
+  & .box-pesan {
+    top: 90%;
+    display: flex;
+    justify-content: center;
+
+    & .wrapper {
+      max-width: 750px;
+      padding: 48px;
+      box-sizing: border-box;
+      background-color: rgb(255, 255, 255);
+
+      & h2 {
+        font-size: 24px;
+        line-height: 1.16667;
+        color: #eb7d23;
+        margin-bottom: 32px;
+      }
+
+      & form {
+        width: 100%;
+        display: flex;
+
+        & .wrapper-btn {
+          padding: 8px;
+
+          & button {
+            border: 0 solid #fad961;
+            font-size: 14px;
+            line-height: 1.42858;
+            background-color: #f76b1c;
+            color: #fff;
+            padding: 10px 32px;
+            border-radius: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
