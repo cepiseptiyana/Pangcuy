@@ -6,17 +6,17 @@ import jumbotron from "./components/jumbotron/jumbotron.vue";
 
 <template>
   <!-- <header></header> -->
-  <main>
+  <main style="background-color: #494949; height: 2000px">
     <!-- nav -->
     <Navbar />
 
     <!-- jumbotron -->
     <jumbotron />
 
-    <RouterView />
+    <!-- <RouterView /> -->
 
     <!-- footer -->
-    <Footer />
+    <!-- <Footer /> -->
   </main>
 </template>
 

@@ -231,9 +231,9 @@ function tambahQuantity(product) {
 
 <template>
   <!-- NAVBAR starts -->
-  <nav class="navbar navbar-expand-lg position-fixed">
+  <nav class="navbar navbar-expand-lg position-fixed w-100 bg-light z-1">
     <div class="container">
-      <a class="navbar-brand text-white" href="#">Pangcuy</a>
+      <a class="navbar-brand text-danger" href="#">Pangcuy</a>
       <button
         class="navbar-toggler bg-primary"
         type="button"
@@ -251,34 +251,27 @@ function tambahQuantity(product) {
           style="--bs-scroll-height: 100px"
         >
           <li class="nav-item">
-            <router-link
-              class="nav-link active text-white"
-              aria-current="page"
-              to="/"
+            <router-link class="nav-link active" aria-current="page" to="/"
               >Home</router-link
             >
           </li>
-          <router-link
-            to="/transaksi"
-            class="nav-link text-white"
-            active-class="active"
-          >
+          <router-link to="/transaksi" class="nav-link" active-class="active">
             Transaksi
           </router-link>
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle text-white"
+              class="nav-link dropdown-toggle"
               href="#"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Link
+              Order
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Makanan</a></li>
               <li>
-                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Minuman</a>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
@@ -294,9 +287,7 @@ function tambahQuantity(product) {
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn btn-primary text-white" type="submit">
-            Search
-          </button>
+          <button class="btn btn-primary" type="submit">Search</button>
         </form>
       </div>
     </div>
