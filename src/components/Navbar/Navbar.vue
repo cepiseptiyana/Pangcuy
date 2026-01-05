@@ -235,13 +235,14 @@ function tambahQuantity(product) {
     <div class="container">
       <a class="navbar-brand text-danger" href="#">Pangcuy</a>
       <button
-        class="navbar-toggler bg-primary"
+        class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarScroll"
         aria-controls="navbarScroll"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        style="border: none; box-shadow: 0 0 2px #0d6efd"
       >
         <span class="navbar-toggler-icon"></span>
       </button>

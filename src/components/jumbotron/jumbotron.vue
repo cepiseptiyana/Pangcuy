@@ -102,15 +102,10 @@ function chevron_RigthSlide() {
 <template>
   <header class="jumbo">
     <div
-      class="position-relative d-flex justify-content-center align-items-center"
+      class="position-relative wrapper container-fluid d-flex justify-content-center align-items-center"
     >
-      <div class="">
-        <img
-          class="imageJumbo"
-          src="@/assets/images/bg-hero-home.jpg"
-          width="100%"
-          min-height="480px"
-        />
+      <div class="wrapper-img w-100">
+        <img class="imageJumbo" src="@/assets/images/bg-hero-home.jpg" />
       </div>
 
       <div class="desc position-absolute text-center">
@@ -127,8 +122,13 @@ function chevron_RigthSlide() {
 
           <form action="" method="get">
             <div class="wrapper-input filter-date">
-              <label for="">Tanggal Acara</label>
-              <input type="date" name="date" />
+              <label class="pb-2 fs-6" for="date">Tanggal Acara</label>
+              <input
+                style="font-size: 14px"
+                type="date"
+                name="date"
+                id="date"
+              />
             </div>
 
             <div class="wrapper-input location-date">
@@ -190,6 +190,15 @@ function chevron_RigthSlide() {
 .jumbo {
   padding-top: 56px;
 
+  & .wrapper {
+    & .wrapper-img {
+      & img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
   & .desc {
     & h1 {
       font-style: italic;
@@ -206,11 +215,13 @@ function chevron_RigthSlide() {
   }
 
   & .box-pesan {
-    top: 90%;
+    bottom: -100px;
+    width: 800px;
     display: flex;
     justify-content: center;
 
     & .wrapper {
+      width: 100%;
       padding: 48px;
       box-sizing: border-box;
       background-color: rgb(255, 255, 255);
@@ -246,6 +257,214 @@ function chevron_RigthSlide() {
 
             &:hover {
               background-color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .jumbo {
+    & .desc {
+      & h1 {
+        font-style: italic;
+        font-family: Vedacity;
+        font-size: 30px;
+        line-height: 1.16667;
+      }
+
+      & p {
+        font-size: 18px;
+        line-height: 1.33334;
+        color: #000000;
+      }
+    }
+
+    & .box-pesan {
+      width: 50%;
+      bottom: -150px;
+
+      & .wrapper {
+        padding: 20px;
+
+        & select {
+          font-size: 14px;
+        }
+
+        & h2 {
+          font-size: 22px;
+          line-height: 1.16667;
+          color: #eb7d23;
+          margin-bottom: 32px;
+        }
+
+        & form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          & .wrapper-input {
+            display: flex;
+            flex-direction: column;
+          }
+
+          & .wrapper-btn {
+            padding: 8px;
+
+            & button {
+              border: 0 solid #fad961;
+              font-size: 14px;
+              line-height: 1.42858;
+              background-color: #f76b1c;
+              color: #fff;
+              padding: 10px 32px;
+              border-radius: 24px;
+
+              &:hover {
+                background-color: red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .jumbo {
+    & .desc {
+      & h1 {
+        font-style: italic;
+        font-family: Vedacity;
+        font-size: 30px;
+        line-height: 1.16667;
+      }
+
+      & p {
+        font-size: 18px;
+        line-height: 1.33334;
+        color: #000000;
+      }
+    }
+
+    & .box-pesan {
+      width: 90%;
+
+      & .wrapper {
+        width: 100%;
+        padding: 20px;
+
+        & select {
+          font-size: 14px;
+        }
+
+        & h2 {
+          font-size: 22px;
+          line-height: 1.16667;
+          color: #eb7d23;
+          margin-bottom: 32px;
+        }
+
+        & form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          & .wrapper-input {
+            display: flex;
+            flex-direction: column;
+          }
+
+          & .wrapper-btn {
+            padding: 8px;
+
+            & button {
+              border: 0 solid #fad961;
+              font-size: 14px;
+              line-height: 1.42858;
+              background-color: #f76b1c;
+              color: #fff;
+              padding: 10px 32px;
+              border-radius: 24px;
+
+              &:hover {
+                background-color: red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .jumbo {
+    & .desc {
+      & h1 {
+        font-style: italic;
+        font-family: Vedacity;
+        font-size: 30px;
+        line-height: 1.16667;
+      }
+
+      & p {
+        font-size: 18px;
+        line-height: 1.33334;
+        color: #000000;
+      }
+    }
+
+    & .box-pesan {
+      width: 90%;
+      top: 90%;
+
+      & .wrapper {
+        width: 100%;
+        padding: 20px;
+
+        & select {
+          font-size: 14px;
+        }
+
+        & h2 {
+          font-size: 22px;
+          line-height: 1.16667;
+          color: #eb7d23;
+          margin-bottom: 32px;
+        }
+
+        & form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          & .wrapper-input {
+            display: flex;
+            flex-direction: column;
+          }
+
+          & .wrapper-btn {
+            padding: 8px;
+
+            & button {
+              border: 0 solid #fad961;
+              font-size: 14px;
+              line-height: 1.42858;
+              background-color: #f76b1c;
+              color: #fff;
+              padding: 10px 32px;
+              border-radius: 24px;
+
+              &:hover {
+                background-color: red;
+              }
             }
           }
         }

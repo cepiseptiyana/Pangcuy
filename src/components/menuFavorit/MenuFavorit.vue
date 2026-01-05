@@ -37,7 +37,7 @@ const products = ref([
 </script>
 
 <template>
-  <section class="container section1" style="padding-top: 190px">
+  <section class="container section1">
     <div class="container">
       <div class="wrapper-judul text-center">
         <h2>Menu Favorit</h2>
@@ -76,45 +76,81 @@ const products = ref([
 </template>
 
 <style scoped>
-.wrapper-judul {
-  font-size: 32px;
-  line-height: 1.125;
+.section1 {
+  padding-top: 190px;
+  .wrapper-judul {
+    font-size: 32px;
+    line-height: 1.125;
 
-  & h2 {
-    color: #eb7d23;
-    font-family: Caturitta, serif;
-    font-weight: 400;
-    margin-bottom: 0;
+    & h2 {
+      color: #eb7d23;
+      font-family: Caturitta, serif;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    & p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
   }
 
-  & p {
-    font-size: 16px;
-    line-height: 1.5;
+  .wrapper-product {
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: none;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      cursor: pointer;
+      background: #555;
+    }
+
+    & .card {
+      & .card-body {
+        & p {
+          font-size: 14px;
+        }
+      }
+
+      & .btn {
+        font-size: 14px;
+        transition: 300ms;
+      }
+
+      & img {
+        transition: 300ms;
+      }
+
+      &:hover {
+        & img {
+          transform: scale(1.04);
+        }
+
+        & .btn {
+          font-size: 16px;
+        }
+      }
+    }
   }
 }
 
-.wrapper-product {
-  overflow-y: hidden;
-  overflow-x: scroll;
-
-  &::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  /* Track */
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: none;
-  }
-
-  /* Handle on hover */
-  &::-webkit-scrollbar-thumb:hover {
-    cursor: pointer;
-    background: #555;
+@media (max-width: 768px) {
+  .section1 {
+    padding-top: 350px;
   }
 }
 </style>

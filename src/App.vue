@@ -1,34 +1,31 @@
 <script setup>
 import Navbar from "@/components/Navbar/Navbar.vue";
-import Footer from "./components/footer/footer.vue";
+import SectionFooter from "@/components/footer/SectionFooter.vue";
 </script>
 
 <template>
   <!-- <header></header> -->
-  <main style="background-color: #f8f8f8; height: 2000px; position: relative">
+  <main>
     <!-- nav -->
-    <Navbar />
-
-    <h1
-      class="position-fixed"
-      style="
-        padding: 5px;
-        z-index: 99999;
-        transform: rotate(-20deg);
-        top: 25px;
-        left: 0;
-        background-color: orange;
-        color: white;
-      "
-    >
-      maintenance
-    </h1>
+    <nav>
+      <Navbar />
+    </nav>
 
     <RouterView />
 
     <!-- footer -->
-    <!-- <Footer /> -->
+    <footer>
+      <SectionFooter />
+    </footer>
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+body {
+  overflow: hidden;
+}
+
+footer {
+  background-color: #f1f1f1;
+}
+</style>

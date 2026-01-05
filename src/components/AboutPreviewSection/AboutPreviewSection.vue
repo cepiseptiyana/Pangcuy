@@ -81,4 +81,74 @@
     }
   }
 }
+
+@media (max-width: 992px) {
+  .aboutMe {
+    padding: 190px 0;
+    width: 100vw;
+
+    & .wrapper-img {
+      width: 100%;
+      height: 500px;
+
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
+
+      & .wrapper-preview {
+        position: absolute;
+        width: 600px;
+        box-sizing: border-box;
+        padding: 40px;
+
+        & h3 {
+          font-size: 22px;
+          color: #eb7d23;
+          font-weight: 400;
+          margin-bottom: 16px;
+        }
+
+        & p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutMe {
+    padding: 190px 0;
+    width: 100vw;
+
+    & .wrapper-img {
+      width: 100%;
+      height: 500px;
+
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
+
+      & .wrapper-preview {
+        position: absolute;
+        width: 90%;
+        box-sizing: border-box;
+        padding: 40px;
+
+        & h3 {
+          font-size: 22px;
+          color: #eb7d23;
+          font-weight: 400;
+          margin-bottom: 16px;
+        }
+
+        & p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
 </style>
