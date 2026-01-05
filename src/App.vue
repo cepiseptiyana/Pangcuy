@@ -1,38 +1,31 @@
 <script setup>
 import Navbar from "@/components/Navbar/Navbar.vue";
-import Footer from "./components/footer/footer.vue";
-import jumbotron from "./components/jumbotron/jumbotron.vue";
+import SectionFooter from "@/components/footer/SectionFooter.vue";
 </script>
 
 <template>
   <!-- <header></header> -->
-  <main style="background-color: #494949; height: 2000px; position: relative">
+  <main>
     <!-- nav -->
-    <Navbar />
+    <nav>
+      <Navbar />
+    </nav>
 
-    <!-- jumbotron -->
-    <jumbotron />
-
-    <h1
-      class="position-fixed"
-      style="
-        padding: 5px;
-        z-index: 99999;
-        transform: rotate(-20deg);
-        top: 25px;
-        left: 0;
-        background-color: orange;
-        color: white;
-      "
-    >
-      maintenance
-    </h1>
-
-    <!-- <RouterView /> -->
+    <RouterView />
 
     <!-- footer -->
-    <!-- <Footer /> -->
+    <footer>
+      <SectionFooter />
+    </footer>
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+body {
+  overflow: hidden;
+}
+
+footer {
+  background-color: #f1f1f1;
+}
+</style>
