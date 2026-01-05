@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { ref } from "vue";
 import feather from "feather-icons";
 
@@ -95,62 +95,91 @@ function chevron_RigthSlide() {
     }, 600);
   }
 }
-</script>
+</script> -->
+
+<script></script>
 
 <template>
   <header class="jumbo">
-    <div class="container-fluid">
-      <div
-        class="row position-relative d-flex justify-content-center align-items-center"
-      >
-        <div class="col-lg">
-          <!-- <a @click="chevron_leftSlide($event)" class="iconleftFeater">
-            <span v-html="chevron_left"></span>
-          </a> -->
-          <img
-            class="imageJumbo"
-            src="@/assets/images/bg-hero-home.jpg"
-            width="100%"
-            min-height="480px"
-          />
-          <!-- <a @click="chevron_RigthSlide($event)" class="iconRigthFeater">
-            <span v-html="chevron_right"></span>
-          </a> -->
-        </div>
+    <div
+      class="position-relative d-flex justify-content-center align-items-center"
+    >
+      <div class="">
+        <img
+          class="imageJumbo"
+          src="@/assets/images/bg-hero-home.jpg"
+          width="100%"
+          min-height="480px"
+        />
+      </div>
 
-        <div class="col-lg desc position-absolute text-center">
-          <h1>kuliner <span class="text-danger">makanan</span> indonesia</h1>
-          <p>Praktis & Higienis!</p>
-        </div>
+      <div class="desc position-absolute text-center">
+        <h1>kuliner <span class="text-danger">makanan</span> indonesia</h1>
+        <p>Praktis & Higienis!</p>
+      </div>
 
-        <div class="col-lg box-pesan position-absolute text-center">
-          <div class="wrapper">
-            <h2>
-              Bingung mau pesan apa?
-              <span>Yuk, kami pilihkan menu terbaik!</span>
-            </h2>
+      <div class="box-pesan position-absolute text-center">
+        <div class="wrapper">
+          <h2>
+            Bingung mau pesan apa?
+            <span>Yuk, kami pilihkan menu terbaik!</span>
+          </h2>
 
-            <form action="">
-              <div class="wrapper-input filter-date">
-                <label for="">Tanggal Acara</label>
-                <input type="date" />
-              </div>
+          <form action="" method="get">
+            <div class="wrapper-input filter-date">
+              <label for="">Tanggal Acara</label>
+              <input type="date" name="date" />
+            </div>
 
-              <div class="wrapper-input location-date">
-                <label for="">Tanggal Acara</label>
-                <input type="date" />
-              </div>
+            <div class="wrapper-input location-date">
+              <select
+                name="daerahPengantar"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected>daerah pengantar</option>
+                <option value="1">kota bekasi</option>
+                <option value="2">kota tangerang</option>
+                <option value="3">kota jakarta utara</option>
+                <option value="4">kota jakarta barat</option>
+                <option value="5">kota jakarta timur</option>
+                <option value="6">kota jakarta selatan</option>
+                <option value="7">kota jakarta</option>
+                <option value="8">serang</option>
+                <option value="9">kab.tangeran</option>
+                <option value="10">cikarang</option>
+                <option value="11">bandung</option>
+                <option value="12">bogor</option>
+              </select>
+            </div>
 
-              <div class="wrapper-input time-filter">
-                <label for="">Tanggal Acara</label>
-                <input type="date" />
-              </div>
+            <div class="wrapper-input time-filter">
+              <select
+                name="jamPengantar"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected>Jam Pengantaran</option>
+                <option value="1">08:00</option>
+                <option value="1">09:00</option>
+                <option value="1">10:00</option>
+                <option value="1">11:00</option>
+                <option value="1">12:00</option>
+                <option value="1">13:00</option>
+                <option value="1">14:00</option>
+                <option value="1">15:00</option>
+                <option value="1">16:00</option>
+                <option value="1">17:00</option>
+                <option value="1">18:00</option>
+                <option value="1">19:00</option>
+                <option value="1">20:00</option>
+              </select>
+            </div>
 
-              <div class="wrapper-btn">
-                <button>Cek Rekomendasi</button>
-              </div>
-            </form>
-          </div>
+            <div class="wrapper-btn">
+              <button type="submit">Cek Rekomendasi</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -182,7 +211,6 @@ function chevron_RigthSlide() {
     justify-content: center;
 
     & .wrapper {
-      max-width: 750px;
       padding: 48px;
       box-sizing: border-box;
       background-color: rgb(255, 255, 255);
@@ -197,6 +225,12 @@ function chevron_RigthSlide() {
       & form {
         width: 100%;
         display: flex;
+        gap: 20px;
+
+        & .wrapper-input {
+          display: flex;
+          flex-direction: column;
+        }
 
         & .wrapper-btn {
           padding: 8px;
@@ -209,6 +243,10 @@ function chevron_RigthSlide() {
             color: #fff;
             padding: 10px 32px;
             border-radius: 24px;
+
+            &:hover {
+              background-color: red;
+            }
           }
         }
       }
