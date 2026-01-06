@@ -57,6 +57,10 @@
         margin-bottom: 16px;
       }
 
+      & p {
+        font-size: 14px;
+      }
+
       & > img {
         width: 200px;
       }
