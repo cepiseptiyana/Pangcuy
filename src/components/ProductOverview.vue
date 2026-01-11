@@ -1,12 +1,18 @@
 <script setup>
-import { ref } from "vue";
+// import { ref } from "vue";
 
-import { allProduct } from "@/utils/allProduct";
+// import { allProduct } from "@/utils/allProduct";
 
-const productsData = ref([...allProduct]);
+// const productsData = ref([...allProduct]);
 </script>
 
 <template>
+  <div class="container">
+    <h1 style="font-family: 'Courier New', Courier, monospace">
+      Product Overview
+    </h1>
+  </div>
+
   <nav class="navbar bg-body-tertiary">
     <div class="container">
       <div class="d-flex gap-2">
