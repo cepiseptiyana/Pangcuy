@@ -2,14 +2,24 @@
 // import Products from "../components/Products/Products.vue";
 import jumbotron from "../components/jumbotron/jumbotron.vue";
 import MenuFavorit from "../components/menuFavorit/MenuFavorit.vue";
-import AboutPreviewSection from "../components/AboutPreviewSection/AboutPreviewSection.vue";
+import Card from "@/components/Card.vue";
+import CardOverview from "@/components/CardOverview.vue";
+
+import { allProduct } from "@/utils/allProduct";
 </script>
 
 <template>
-  <section class="content-1" id="content-1">
-    <jumbotron />
+  <jumbotron />
+
+  <section class="container pt-5 d-flex gap-2 flex-wrap justify-content-center">
+    <Card :data="allProduct[0]" />
+    <Card :data="allProduct[1]" />
+    <Card :data="allProduct[2]" />
+  </section>
+
+  <section class="container-fluid pt-5 pb-5">
     <MenuFavorit />
-    <AboutPreviewSection />
+    <CardOverview :data="allProduct" />
   </section>
 </template>
 
