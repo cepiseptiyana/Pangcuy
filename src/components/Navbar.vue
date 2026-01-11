@@ -68,7 +68,7 @@ import Swal from "sweetalert2";
   <!-- NAVBAR starts -->
   <nav class="navbar navbar-expand-lg position-fixed w-100 bg-light z-1">
     <div class="container">
-      <a class="navbar-brand text-danger" href="#">Pangcuy</a>
+      <a class="navbar-brand text-danger" href="#">Clothes.TNG</a>
       <button
         class="navbar-toggler"
         type="button"
