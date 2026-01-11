@@ -7,7 +7,7 @@
         </div>
 
         <div>
-          <h4 class="fs-5">Dapur Nusantara</h4>
+          <h4 class="fs-5">Clothes.TNG</h4>
           <p>Family of Eatwell Culinary Group</p>
 
           <ul class="d-flex gap-2">
@@ -163,11 +163,6 @@
         </ul>
       </div>
     </div>
-    <!-- <h1>Pangsit</h1>
-    <p>Pangsit Ayam Cihuy</p>
-    <hr />
-    <div class="sosmed"></div>
-    <p class="Copyright">Copyright <span>&#169;</span> 2024 Pangcuy&#174;</p> -->
   </div>
 </template>
 
