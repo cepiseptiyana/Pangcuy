@@ -62,6 +62,12 @@ import Swal from "sweetalert2";
 //   nameLength();
 //   return;
 // }
+
+import { onMounted } from "vue";
+
+onMounted(() => {
+  feather.replace(); // This function scans the DOM for elements with data-feather attributes
+});
 </script>
 
 <template>
@@ -116,14 +122,17 @@ import Swal from "sweetalert2";
             </ul>
           </li>
         </ul>
-        <form class="d-flex" role="search">
+        <form class="d-flex align-items-center" role="search">
           <input
             class="form-control me-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn btn-primary" type="submit">Search</button>
+
+          <div style="cursor: pointer">
+            <i data-feather="shopping-cart"></i>
+          </div>
         </form>
       </div>
     </div>
