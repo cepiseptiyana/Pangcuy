@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed, onMounted } from "vue";
 // import Products from "../components/Products/Products.vue";
 import jumbotron from "../components/jumbotron.vue";
 import ProductOverview from "../components/ProductOverview.vue";
@@ -17,6 +17,50 @@ const banner = ref([
   { id: 2, name: "Men", desc: "Spring 2024", image: banner_men },
   { id: 3, name: "Accessories", desc: "New Trend", image: banner_accessoris },
 ]);
+
+const searchInputValue = ref("");
+const selectedRadio = ref("default");
+
+const onUpdateSearch = (value) => {
+  searchInputValue.value = value;
+};
+
+const onSelectedRadio = (value) => {
+  selectedRadio.value = value;
+  console.log(value);
+};
+
+const filteredProducts = computed(() => {
+  const resultFilter = allProduct.filter((product) => {
+    // LOOPING PERDATA
+    // CEK JIKA MENGANDUNG VALUE INPUT SEARCH JIKA SAMA MAKA NEXT KE RETURN TRUE DI BAWAH UNTUK MENGAMBIL DATA TERSEBUT.
+    if (
+      !product.name.toLowerCase().includes(searchInputValue.value.toLowerCase())
+    )
+      return false;
+
+    // filter price
+    if (selectedRadio.value === "default") {
+      return true;
+    }
+
+    if (selectedRadio.value === "0-50000")
+      return product.price >= 0 && product.price <= 50000;
+
+    if (selectedRadio.value === "100000-500000")
+      return product.price >= 100000 && product.price <= 500000;
+
+    if (selectedRadio.value === "500000-1000000")
+      return product.price >= 500000 && product.price <= 1000000;
+
+    if (selectedRadio.value === "1000000-2000000")
+      return product.price >= 1000000 && product.price <= 2000000;
+
+    return true;
+  });
+
+  return resultFilter;
+});
 </script>
 
 <template>
@@ -33,8 +77,12 @@ const banner = ref([
   </section>
 
   <section class="container-fluid bg-body-tertiary pb-5">
-    <ProductOverview />
-    <CardOverview :data="allProduct" />
+    <ProductOverview
+      :searchValue="searchInputValue"
+      @update-search="onUpdateSearch"
+      @selected-radio="onSelectedRadio"
+    />
+    <CardOverview :data="filteredProducts" />
   </section>
 </template>
 
