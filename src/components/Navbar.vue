@@ -72,7 +72,7 @@ onMounted(() => {
 
 <template>
   <!-- NAVBAR starts -->
-  <nav class="navbar navbar-expand-lg position-fixed w-100 bg-light z-1">
+  <nav class="navbar navbar-expand-lg position-fixed w-100 bg-light">
     <div class="container">
       <a class="navbar-brand text-danger" href="#">Clothes.TNG</a>
       <button
@@ -122,7 +122,7 @@ onMounted(() => {
             </ul>
           </li>
         </ul>
-        <form class="d-flex align-items-center" role="search">
+        <form class="d-flex gap-2 align-items-center" role="search">
           <input
             class="form-control me-2"
             type="search"
@@ -130,8 +130,23 @@ onMounted(() => {
             aria-label="Search"
           />
 
-          <div style="cursor: pointer">
+          <div
+            class="cartOffcanvas"
+            style="cursor: pointer"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#cartOffcanvas"
+            aria-controls="offcanvasWithBothOptions"
+          >
             <i data-feather="shopping-cart"></i>
+          </div>
+          <div
+            class="wishlistOffcanvas"
+            style="cursor: pointer"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#wishlistOffcanvas"
+            aria-controls="offcanvasWithBothOptions"
+          >
+            <i data-feather="heart"></i>
           </div>
         </form>
       </div>
@@ -139,5 +154,150 @@ onMounted(() => {
   </nav>
   <!-- navbar ends -->
 
-  <!-- Shopping Cart -->
+  <!-- MOBILE SLIDE CART -->
+  <div
+    class="offcanvas offcanvas-end"
+    data-bs-scroll="true"
+    tabindex="-1"
+    id="cartOffcanvas"
+    aria-labelledby="offcanvasWithBothOptionsLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+        Backdrop with scrolling
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="card mb-3" style="max-width: 100%">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="@/assets/images/about-preview-02.png"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text" style="font-size: 14px">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="card-text">
+                <small class="text-body-secondary"
+                  >Last updated 3 mins ago</small
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE SLIDE HEART -->
+  <div
+    class="offcanvas offcanvas-end"
+    data-bs-scroll="true"
+    tabindex="-1"
+    id="wishlistOffcanvas"
+    aria-labelledby="offcanvasWithBothOptionsLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+        Backdrop with scrolling
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="card mb-3" style="max-width: 100%">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="@/assets/images/about-preview.png"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text" style="font-size: 14px">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="card-text">
+                <small class="text-body-secondary"
+                  >Last updated 3 mins ago</small
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+.navbar {
+  z-index: 9999;
+
+  & .cartOffcanvas {
+    &:hover {
+      svg {
+        stroke: rgb(0, 42, 255);
+      }
+    }
+  }
+
+  & .wishlistOffcanvas {
+    &:hover {
+      svg {
+        stroke: rgb(255, 0, 0);
+      }
+    }
+  }
+}
+
+.offcanvas {
+  width: 600px;
+
+  & .card {
+    & .row {
+      & .img-fluid {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .offcanvas {
+    width: 400px;
+
+    & .card {
+      & .row {
+        & .img-fluid {
+          height: 200px;
+        }
+      }
+    }
+  }
+}
+</style>
