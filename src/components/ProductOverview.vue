@@ -1,9 +1,18 @@
 <script setup>
-// import { ref } from "vue";
+import { ref } from "vue";
 
-// import { allProduct } from "@/utils/allProduct";
+const emit = defineEmits(["update-search", "selected-radio"]);
 
-// const productsData = ref([...allProduct]);
+const searchValue = ref("");
+const selected = ref("default");
+
+const onInput = () => {
+  emit("update-search", searchValue.value);
+};
+
+const onRadioChange = () => {
+  emit("selected-radio", selected.value);
+};
 </script>
 
 <template>
@@ -27,6 +36,8 @@
       <div class="d-flex">
         <form class="d-flex" role="search">
           <input
+            v-model="searchValue"
+            @input="onInput"
             class="form-control me-2"
             type="search"
             placeholder="Search"
@@ -66,6 +77,10 @@
       ></button>
     </div>
     <div class="offcanvas-body">
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!-- PRICE -->
       <div class="mb-3">
         <h6>Price</h6>
 
@@ -73,8 +88,11 @@
           <input
             class="form-check-input"
             type="radio"
-            name="radioDefault"
+            name="priceRange"
             id="radioDefault1"
+            value="default"
+            v-model="selected"
+            @change="onRadioChange"
           />
           <label class="form-check-label" for="radioDefault1"> default </label>
         </div>
@@ -82,10 +100,13 @@
           <input
             class="form-check-input"
             type="radio"
-            name="radioDefault"
-            id="radioDefault1"
+            name="priceRange"
+            id="radioDefault2"
+            value="0-50000"
+            v-model="selected"
+            @change="onRadioChange"
           />
-          <label class="form-check-label" for="radioDefault1">
+          <label class="form-check-label" for="radioDefault2">
             Rp. 0 - 50.000
           </label>
         </div>
@@ -93,11 +114,13 @@
           <input
             class="form-check-input"
             type="radio"
-            name="radioDefault"
-            id="radioDefault2"
-            checked
+            name="priceRange"
+            id="radioDefault3"
+            value="50000-100000"
+            v-model="selected"
+            @change="onRadioChange"
           />
-          <label class="form-check-label" for="radioDefault2">
+          <label class="form-check-label" for="radioDefault3">
             Rp. 50.000 - 100.000
           </label>
         </div>
@@ -105,11 +128,13 @@
           <input
             class="form-check-input"
             type="radio"
-            name="radioDefault"
-            id="radioDefault2"
-            checked
+            name="priceRange"
+            id="radioDefault4"
+            value="100000-500000"
+            v-model="selected"
+            @change="onRadioChange"
           />
-          <label class="form-check-label" for="radioDefault2">
+          <label class="form-check-label" for="radioDefault4">
             Rp. 100.000 - 500.000
           </label>
         </div>
@@ -117,16 +142,37 @@
           <input
             class="form-check-input"
             type="radio"
-            name="radioDefault"
-            id="radioDefault2"
-            checked
+            name="priceRange"
+            id="radioDefault5"
+            value="500000-1000000"
+            v-model="selected"
+            @change="onRadioChange"
           />
-          <label class="form-check-label" for="radioDefault2">
+          <label class="form-check-label" for="radioDefault5">
             Rp. 500.000 - 1.000.000
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="priceRange"
+            id="radioDefault5"
+            value="1000000-2000000"
+            v-model="selected"
+            @change="onRadioChange"
+          />
+          <label class="form-check-label" for="radioDefault5">
+            Rp. 1.000.000 - 2.000.000
           </label>
         </div>
       </div>
 
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!-- COLOR -->
       <div class="mb-3">
         <h6>Color</h6>
 
@@ -136,6 +182,7 @@
             type="radio"
             name="radioDefault"
             id="radioDefault1"
+            actived
           />
           <label class="form-check-label" for="radioDefault1">default</label>
         </div>
@@ -146,7 +193,7 @@
             name="radioDefault"
             id="radioDefault1"
           />
-          <label class="form-check-label" for="radioDefault1">Red</label>
+          <label class="form-check-label" for="radioDefault1">Black</label>
         </div>
         <div class="form-check">
           <input
@@ -176,7 +223,17 @@
             id="radioDefault2"
             checked
           />
-          <label class="form-check-label" for="radioDefault2">Yellow</label>
+          <label class="form-check-label" for="radioDefault2">White</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="radioDefault"
+            id="radioDefault2"
+            checked
+          />
+          <label class="form-check-label" for="radioDefault2">Chocolate</label>
         </div>
       </div>
       <div>
