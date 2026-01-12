@@ -8,20 +8,20 @@
 
 <template>
   <div class="container">
-    <h1 style="font-family: 'Courier New', Courier, monospace">
-      Product Overview
-    </h1>
+    <h1 style="font-family: serif">Product Overview</h1>
   </div>
 
   <nav class="navbar bg-body-tertiary">
     <div class="container">
       <div class="d-flex gap-2">
-        <a href="#" class="text-decoration-none">All Products</a>
-        <a href="#" class="text-decoration-none">Women</a>
-        <a href="#" class="text-decoration-none">Men</a>
-        <a href="#" class="text-decoration-none">Bag</a>
-        <a href="#" class="text-decoration-none">Shoes</a>
-        <a href="#" class="text-decoration-none">Watches</a>
+        <a href="#" class="text-decoration-none text-secondary fs-6"
+          >All Products</a
+        >
+        <a href="#" class="text-decoration-none text-secondary fs-6">Women</a>
+        <a href="#" class="text-decoration-none text-secondary fs-6">Men</a>
+        <a href="#" class="text-decoration-none text-secondary fs-6">Bag</a>
+        <a href="#" class="text-decoration-none text-secondary fs-6">Shoes</a>
+        <a href="#" class="text-decoration-none text-secondary fs-6">Watches</a>
       </div>
 
       <div class="d-flex">

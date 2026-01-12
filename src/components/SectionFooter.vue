@@ -8,7 +8,7 @@
 
         <div>
           <h4 class="fs-5">Clothes.TNG</h4>
-          <p>Family of Eatwell Culinary Group</p>
+          <p class="text-secondary">Family of Eatwell Culinary Group</p>
 
           <ul class="d-flex gap-2">
             <li class="">
@@ -177,11 +177,6 @@
       & .contact-mobile {
         display: none;
       }
-    }
-
-    & p {
-      font-size: 14px;
-      color: #eb7d23;
     }
   }
 

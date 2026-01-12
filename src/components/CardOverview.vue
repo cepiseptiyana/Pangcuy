@@ -17,12 +17,14 @@ onMounted(() => {
 <template>
   <div class="pt-5 pt-md-2 d-flex justify-content-center flex-wrap gap-2">
     <div v-for="data in props.data" class="card" style="width: 18rem">
-      <img
-        :src="data.image"
-        class="card-img-top w-100 h-100"
-        style="object-fit: cover"
-        alt="..."
-      />
+      <div class="wrapper-img h-100 w-100">
+        <img
+          :src="data.image"
+          class="img w-100 h-100"
+          style="object-fit: cover"
+          alt="..."
+        />
+      </div>
       <div class="card-body">
         <div class="d-flex justify-content-between">
           <div>
@@ -44,3 +46,21 @@ onMounted(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.card {
+  & .wrapper-img {
+    overflow: hidden;
+  }
+
+  .img {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    .img {
+      transform: scale(1.1);
+    }
+  }
+}
+</style>
