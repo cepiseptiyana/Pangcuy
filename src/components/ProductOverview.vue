@@ -46,6 +46,7 @@
     </div>
   </nav>
 
+  <!-- SLIDER -->
   <div
     class="offcanvas offcanvas-start"
     data-bs-scroll="true"
@@ -224,3 +225,9 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.offcanvas {
+  z-index: 9999;
+}
+</style>

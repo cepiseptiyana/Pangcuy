@@ -255,7 +255,7 @@ onMounted(() => {
 
 <style scoped>
 .navbar {
-  z-index: 9999;
+  z-index: 9;
 
   & .cartOffcanvas {
     &:hover {
@@ -276,6 +276,7 @@ onMounted(() => {
 
 .offcanvas {
   width: 600px;
+  z-index: 9999;
 
   & .card {
     & .row {
