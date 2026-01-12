@@ -15,7 +15,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="pt-5 pt-md-2 d-flex justify-content-center flex-wrap gap-2">
+  <div
+    class="wrapper pt-5 pt-md-2 d-flex justify-content-center flex-wrap gap-2"
+  >
     <div v-for="data in props.data" class="card" style="width: 18rem">
       <div class="wrapper-img h-100 w-100">
         <img
@@ -36,7 +38,7 @@ onMounted(() => {
             >
           </div>
 
-          <div style="cursor: pointer">
+          <div class="wishlistOffcanvas" style="cursor: pointer">
             <i data-feather="heart"></i>
           </div>
         </div>
@@ -48,18 +50,28 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.card {
-  & .wrapper-img {
-    overflow: hidden;
-  }
+.wrapper {
+  .card {
+    & .wrapper-img {
+      overflow: hidden;
+    }
 
-  .img {
-    transition: transform 0.3s ease;
-  }
-
-  &:hover {
     .img {
-      transform: scale(1.1);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      .img {
+        transform: scale(1.1);
+      }
+    }
+
+    & .wishlistOffcanvas {
+      &:hover {
+        svg {
+          stroke: rgb(255, 0, 0);
+        }
+      }
     }
   }
 }
