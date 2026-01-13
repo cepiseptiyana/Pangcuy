@@ -1,36 +1,40 @@
 <script setup>
 import { ref } from "vue";
 
-const emit = defineEmits(["update-search", "selected-radio"]);
+const emit = defineEmits([
+  "update-search",
+  "selected-radio-price",
+  "selected-radio-color",
+  "selected-checkbox-tags",
+]);
 
 const searchValue = ref("");
-const selected = ref("default");
+const selectedRadioPrice = ref("default");
+const selectedRadioColor = ref("default");
+const selectedCheckboxTags = ref([]);
 
 const onInput = () => {
   emit("update-search", searchValue.value);
 };
 
-const onRadioChange = () => {
-  emit("selected-radio", selected.value);
+const onRadioPriceChange = () => {
+  emit("selected-radio-price", selectedRadioPrice.value);
+};
+
+const onRadioColorChange = () => {
+  emit("selected-radio-color", selectedRadioColor.value);
+};
+
+const onRadioCheckboxChange = () => {
+  emit("selected-checkbox-tags", selectedCheckboxTags.value);
 };
 </script>
 
 <template>
-  <div class="container">
-    <h1 style="font-family: serif">Product Overview</h1>
-  </div>
-
   <nav class="navbar bg-body-tertiary">
-    <div class="container">
-      <div class="d-flex gap-2">
-        <a href="#" class="text-decoration-none text-secondary fs-6"
-          >All Products</a
-        >
-        <a href="#" class="text-decoration-none text-secondary fs-6">Women</a>
-        <a href="#" class="text-decoration-none text-secondary fs-6">Men</a>
-        <a href="#" class="text-decoration-none text-secondary fs-6">Bag</a>
-        <a href="#" class="text-decoration-none text-secondary fs-6">Shoes</a>
-        <a href="#" class="text-decoration-none text-secondary fs-6">Watches</a>
+    <div class="container d-flex justify-content-between">
+      <div>
+        <h1 style="font-family: serif">Product Overview</h1>
       </div>
 
       <div class="d-flex">
@@ -89,24 +93,24 @@ const onRadioChange = () => {
             class="form-check-input"
             type="radio"
             name="priceRange"
-            id="radioDefault1"
+            id="radioPrice1"
             value="default"
-            v-model="selected"
-            @change="onRadioChange"
+            v-model="selectedRadioPrice"
+            @change="onRadioPriceChange"
           />
-          <label class="form-check-label" for="radioDefault1"> default </label>
+          <label class="form-check-label" for="radioPrice1"> default </label>
         </div>
         <div class="form-check">
           <input
             class="form-check-input"
             type="radio"
             name="priceRange"
-            id="radioDefault2"
+            id="radioPrice2"
             value="0-50000"
-            v-model="selected"
-            @change="onRadioChange"
+            v-model="selectedRadioPrice"
+            @change="onRadioPriceChange"
           />
-          <label class="form-check-label" for="radioDefault2">
+          <label class="form-check-label" for="radioPrice2">
             Rp. 0 - 50.000
           </label>
         </div>
@@ -115,12 +119,12 @@ const onRadioChange = () => {
             class="form-check-input"
             type="radio"
             name="priceRange"
-            id="radioDefault3"
+            id="radioPrice3"
             value="50000-100000"
-            v-model="selected"
-            @change="onRadioChange"
+            v-model="selectedRadioPrice"
+            @change="onRadioPriceChange"
           />
-          <label class="form-check-label" for="radioDefault3">
+          <label class="form-check-label" for="radioPrice3">
             Rp. 50.000 - 100.000
           </label>
         </div>
@@ -129,12 +133,12 @@ const onRadioChange = () => {
             class="form-check-input"
             type="radio"
             name="priceRange"
-            id="radioDefault4"
+            id="radioPrice4"
             value="100000-500000"
-            v-model="selected"
-            @change="onRadioChange"
+            v-model="selectedRadioPrice"
+            @change="onRadioPriceChange"
           />
-          <label class="form-check-label" for="radioDefault4">
+          <label class="form-check-label" for="radioPrice4">
             Rp. 100.000 - 500.000
           </label>
         </div>
@@ -143,12 +147,12 @@ const onRadioChange = () => {
             class="form-check-input"
             type="radio"
             name="priceRange"
-            id="radioDefault5"
+            id="radioPrice5"
             value="500000-1000000"
-            v-model="selected"
-            @change="onRadioChange"
+            v-model="selectedRadioPrice"
+            @change="onRadioPriceChange"
           />
-          <label class="form-check-label" for="radioDefault5">
+          <label class="form-check-label" for="radioPrice5">
             Rp. 500.000 - 1.000.000
           </label>
         </div>
@@ -157,12 +161,12 @@ const onRadioChange = () => {
             class="form-check-input"
             type="radio"
             name="priceRange"
-            id="radioDefault5"
+            id="radioPrice6"
             value="1000000-2000000"
-            v-model="selected"
-            @change="onRadioChange"
+            v-model="selectedRadioPrice"
+            @change="onRadioPriceChange"
           />
-          <label class="form-check-label" for="radioDefault5">
+          <label class="form-check-label" for="radioPrice6">
             Rp. 1.000.000 - 2.000.000
           </label>
         </div>
@@ -181,61 +185,78 @@ const onRadioChange = () => {
             class="form-check-input"
             type="radio"
             name="radioDefault"
-            id="radioDefault1"
-            actived
+            id="radioColor1"
+            value="default"
+            v-model="selectedRadioColor"
+            @change="onRadioColorChange"
           />
-          <label class="form-check-label" for="radioDefault1">default</label>
+          <label class="form-check-label" for="radioColor1">default</label>
         </div>
         <div class="form-check">
           <input
             class="form-check-input"
             type="radio"
             name="radioDefault"
-            id="radioDefault1"
+            id="radioColor2"
+            value="black"
+            v-model="selectedRadioColor"
+            @change="onRadioColorChange"
           />
-          <label class="form-check-label" for="radioDefault1">Black</label>
+          <label class="form-check-label" for="radioColor2">Black</label>
         </div>
         <div class="form-check">
           <input
             class="form-check-input"
             type="radio"
             name="radioDefault"
-            id="radioDefault2"
-            checked
+            id="radioColor3"
+            value="green"
+            v-model="selectedRadioColor"
+            @change="onRadioColorChange"
           />
-          <label class="form-check-label" for="radioDefault2">Green</label>
+          <label class="form-check-label" for="radioColor3">Green</label>
         </div>
         <div class="form-check">
           <input
             class="form-check-input"
             type="radio"
             name="radioDefault"
-            id="radioDefault2"
-            checked
+            id="radioColor4"
+            value="blue"
+            v-model="selectedRadioColor"
+            @change="onRadioColorChange"
           />
-          <label class="form-check-label" for="radioDefault2">Blue</label>
+          <label class="form-check-label" for="radioColor4">Blue</label>
         </div>
         <div class="form-check">
           <input
             class="form-check-input"
             type="radio"
             name="radioDefault"
-            id="radioDefault2"
-            checked
+            id="radioColor5"
+            value="white"
+            v-model="selectedRadioColor"
+            @change="onRadioColorChange"
           />
-          <label class="form-check-label" for="radioDefault2">White</label>
+          <label class="form-check-label" for="radioColor5">White</label>
         </div>
         <div class="form-check">
           <input
             class="form-check-input"
             type="radio"
             name="radioDefault"
-            id="radioDefault2"
-            checked
+            id="radioColor6"
+            value="chocolate"
+            v-model="selectedRadioColor"
+            @change="onRadioColorChange"
           />
-          <label class="form-check-label" for="radioDefault2">Chocolate</label>
+          <label class="form-check-label" for="radioColor6">Chocolate</label>
         </div>
       </div>
+
+      <!--  -->
+      <!--  -->
+      <!-- TAGS -->
       <div>
         <h6>Tags</h6>
 
@@ -243,40 +264,56 @@ const onRadioChange = () => {
           <input
             class="form-check-input"
             type="checkbox"
-            value=""
-            id="checkDefault"
-            checked
+            id="tag2"
+            value="T-shirt"
+            v-model="selectedCheckboxTags"
+            @change="onRadioCheckboxChange"
           />
-          <label class="form-check-label" for="checkDefault">
-            Default checkbox
-          </label>
+          <label class="form-check-label" for="tag2">T-shirt</label>
         </div>
         <div class="form-check">
           <input
             class="form-check-input"
             type="checkbox"
-            value=""
-            id="checkChecked"
+            id="tag3"
+            value="shoes"
+            v-model="selectedCheckboxTags"
+            @change="onRadioCheckboxChange"
           />
-          <label class="form-check-label" for="checkChecked">T-shirt</label>
+          <label class="form-check-label" for="tag3">Shoes</label>
         </div>
         <div class="form-check">
           <input
             class="form-check-input"
             type="checkbox"
-            value=""
-            id="checkChecked"
+            id="tag4"
+            value="kemeja"
+            v-model="selectedCheckboxTags"
+            @change="onRadioCheckboxChange"
           />
-          <label class="form-check-label" for="checkChecked">Accessories</label>
+          <label class="form-check-label" for="tag4">Kemeja</label>
         </div>
         <div class="form-check">
           <input
             class="form-check-input"
             type="checkbox"
-            value=""
-            id="checkChecked"
+            id="tag5"
+            value="watch"
+            v-model="selectedCheckboxTags"
+            @change="onRadioCheckboxChange"
           />
-          <label class="form-check-label" for="checkChecked">Watches</label>
+          <label class="form-check-label" for="tag5">Watches</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="tag6"
+            value="ransel"
+            v-model="selectedCheckboxTags"
+            @change="onRadioCheckboxChange"
+          />
+          <label class="form-check-label" for="tag6">Ransel</label>
         </div>
       </div>
     </div>
