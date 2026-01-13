@@ -19,15 +19,24 @@ const banner = ref([
 ]);
 
 const searchInputValue = ref("");
-const selectedRadio = ref("default");
+const selectedRadioPrice = ref("default");
+const selectedRadioColor = ref("default");
+const selectCheckboxTags = ref([]);
 
 const onUpdateSearch = (value) => {
   searchInputValue.value = value;
 };
 
-const onSelectedRadio = (value) => {
-  selectedRadio.value = value;
-  console.log(value);
+const onSelectedRadioPrice = (value) => {
+  selectedRadioPrice.value = value;
+};
+
+const onSelectedRadioColor = (value) => {
+  selectedRadioColor.value = value;
+};
+
+const onSelectedCheckboxTags = (value) => {
+  selectCheckboxTags.value = value;
 };
 
 const filteredProducts = computed(() => {
@@ -39,22 +48,43 @@ const filteredProducts = computed(() => {
     )
       return false;
 
-    // filter price
-    if (selectedRadio.value === "default") {
-      return true;
+    // 💰 PRICE
+    if (selectedRadioPrice.value !== "default") {
+      if (selectedRadioPrice.value === "0-50000")
+        if (!(product.price >= 0 && product.price <= 50000)) return false;
+
+      if (selectedRadioPrice.value === "100000-500000")
+        if (!(product.price >= 100000 && product.price <= 500000)) return false;
+
+      if (selectedRadioPrice.value === "500000-1000000")
+        if (!(product.price >= 500000 && product.price <= 1000000))
+          return false;
+
+      if (selectedRadioPrice.value === "1000000-2000000")
+        if (!(product.price >= 1000000 && product.price <= 2000000))
+          return false;
     }
 
-    if (selectedRadio.value === "0-50000")
-      return product.price >= 0 && product.price <= 50000;
+    // FILTER COLOR
+    if (selectedRadioColor.value !== "default") {
+      if (selectedRadioColor.value === "black")
+        if (product.color !== "black") return false;
+      if (selectedRadioColor.value === "green")
+        if (product.color !== "green") return false;
+      if (selectedRadioColor.value === "blue")
+        if (product.color !== "blue") return false;
+      if (selectedRadioColor.value === "white")
+        if (product.color !== "white") return false;
+      if (selectedRadioColor.value === "chocolate")
+        if (product.color !== "chocolate") return false;
+    }
 
-    if (selectedRadio.value === "100000-500000")
-      return product.price >= 100000 && product.price <= 500000;
-
-    if (selectedRadio.value === "500000-1000000")
-      return product.price >= 500000 && product.price <= 1000000;
-
-    if (selectedRadio.value === "1000000-2000000")
-      return product.price >= 1000000 && product.price <= 2000000;
+    // FILTER TAGS
+    if (selectCheckboxTags.value.length > 0) {
+      if (!selectCheckboxTags.value.includes(product.tag)) {
+        return false;
+      }
+    }
 
     return true;
   });
@@ -80,7 +110,9 @@ const filteredProducts = computed(() => {
     <ProductOverview
       :searchValue="searchInputValue"
       @update-search="onUpdateSearch"
-      @selected-radio="onSelectedRadio"
+      @selected-radio-price="onSelectedRadioPrice"
+      @selected-radio-color="onSelectedRadioColor"
+      @selected-checkbox-tags="onSelectedCheckboxTags"
     />
     <CardOverview :data="filteredProducts" />
   </section>
