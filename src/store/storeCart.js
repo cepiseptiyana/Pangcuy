@@ -6,35 +6,24 @@ import { defineStore } from "pinia";
 // the first argument is a unique id of the store across your application
 export const useFavoriteStore = defineStore("favorite", {
   state: () => ({
-    items: [],
+    count: 0,
+    dataFavorite: [],
   }),
 
   // 🔎 GETTERS
-  getters: {
-    // cek apakah produk sudah ada di cart
-    isInFavorite: (state) => {
-      return (productId) => state.items.some((item) => item.id === productId);
-    },
-
-    // total item (qty)
-    totalQty: (state) => state.items.reduce((sum, item) => sum + item.qty, 0),
-
-    // total harga
-    totalPrice: (state) =>
-      state.items.reduce((sum, item) => sum + item.price * item.qty, 0),
-  },
+  getters: {},
 
   // ⚙️ ACTIONS
   actions: {
     addToFavorite(product) {
-      const existing = this.items.find((item) => item.id === product.id);
+      const existing = this.dataFavorite.find((item) => item.id === product.id);
 
       if (existing) {
         // 🟡 sudah ada → jangan push
         existing.qty++;
       } else {
         // 🟢 belum ada → push
-        this.items.push({
+        this.dataFavorite.push({
           ...product,
           qty: 1,
         });

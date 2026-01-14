@@ -67,16 +67,7 @@ const filteredProducts = computed(() => {
 
     // FILTER COLOR
     if (selectedRadioColor.value !== "default") {
-      if (selectedRadioColor.value === "black")
-        if (product.color !== "black") return false;
-      if (selectedRadioColor.value === "green")
-        if (product.color !== "green") return false;
-      if (selectedRadioColor.value === "blue")
-        if (product.color !== "blue") return false;
-      if (selectedRadioColor.value === "white")
-        if (product.color !== "white") return false;
-      if (selectedRadioColor.value === "chocolate")
-        if (product.color !== "chocolate") return false;
+      if (selectedRadioColor.value !== product.color) return false;
     }
 
     // FILTER TAGS

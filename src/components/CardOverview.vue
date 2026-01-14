@@ -1,6 +1,10 @@
 <script setup>
 import feather from "feather-icons";
-import { onMounted } from "vue";
+import { onMounted, computed, ref, watch } from "vue";
+
+import { useFavoriteStore } from "@/store/storeCart";
+
+const store = useFavoriteStore();
 
 const props = defineProps({
   data: {
@@ -12,6 +16,14 @@ const props = defineProps({
 onMounted(() => {
   feather.replace(); // This function scans the DOM for elements with data-feather attributes
 });
+
+watch(
+  () => store.dataFavorite,
+  (newVal) => {
+    console.log("favorite berubah:", newVal);
+  },
+  { deep: true }
+);
 </script>
 
 <template>
@@ -38,7 +50,11 @@ onMounted(() => {
             >
           </div>
 
-          <div class="wishlistOffcanvas" style="cursor: pointer">
+          <div
+            class="wishlistOffcanvas"
+            style="cursor: pointer"
+            @click="store.addToFavorite(data)"
+          >
             <i data-feather="heart"></i>
           </div>
         </div>
